@@ -1,0 +1,11 @@
+{
+  "name": "mongodb",
+  "connector": "mongodb",
+  "url": "mongodb+srv://admin:Admin1234@cluster0-9larn.azure.mongodb.net/sem2project?retryWrites=true",
+  "host": "cluster0-9larn.azure.mongodb.net",
+  "port": 27017,
+  "user": "admin",
+  "password": "Admin1234",
+  "database": "sem2project",
+  "useNewUrlParser": true
+}

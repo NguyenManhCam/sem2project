@@ -1,14 +1,19 @@
-import {BootMixin} from '@loopback/boot';
+import {BootMixin, Binding, Booter} from '@loopback/boot';
 import {ApplicationConfig} from '@loopback/core';
 import {
   RestExplorerBindings,
   RestExplorerComponent,
 } from '@loopback/rest-explorer';
+import {RestApplication, RestServer, RestBindings} from '@loopback/rest';
+import {
+  AuthenticationComponent,
+  AuthenticationBindings,
+} from '@loopback/authentication';
 import {RepositoryMixin} from '@loopback/repository';
-import {RestApplication} from '@loopback/rest';
 import {ServiceMixin} from '@loopback/service-proxy';
 import * as path from 'path';
 import {MySequence} from './sequence';
+import { MyAuthStrategyProvider } from './providers/auth-strategy.provider';
 
 export class Sem2serverApplication extends BootMixin(
   ServiceMixin(RepositoryMixin(RestApplication)),
@@ -16,6 +21,10 @@ export class Sem2serverApplication extends BootMixin(
   constructor(options: ApplicationConfig = {}) {
     super(options);
 
+    this.component(AuthenticationComponent);
+    this.bind(AuthenticationBindings.STRATEGY).toProvider(
+      MyAuthStrategyProvider,
+    );
     // Set up the custom sequence
     this.sequence(MySequence);
 
@@ -38,5 +47,13 @@ export class Sem2serverApplication extends BootMixin(
         nested: true,
       },
     };
+  }
+
+  async start() {
+    await super.start();
+ 
+    const server = await this.getServer(RestServer);
+    const port = await server.get(RestBindings.PORT);
+    console.log(`REST server running on port: ${port}`);
   }
 }
