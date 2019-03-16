@@ -25,35 +25,46 @@ export class MyAuthStrategyProvider implements Provider<Strategy | undefined> {
 
         const name = this.metadata.strategy;
         switch (name) {
-            case 'BasicStrategy':
-                return new BasicStrategy(this.verify);
+            case 'Basic':
+                return new BasicStrategy(this.verifyBasicStrategy.bind(this));
 
-            case 'BearerStrategy':
-                return new BearerStrategy(this.verify2);
+            case 'Bearer':
+                return new BearerStrategy(this.verifyBearerStrategy.bind(this));
 
             default:
                 return Promise.reject(`The strategy ${name} is not available.`);
         }
     }
 
-    async verify(
+    async verifyBasicStrategy(
         username: string,
         password: string,
         cb: (err: Error | null, user?: User | false) => void,
     ) {
-        await this.userRepository.findOne({ where: {} })
-        // find user by name & password
-        // call cb(null, false) when user not found
-        // call cb(null, user) when user is authenticated
+        const user = await this.userRepository.findOne({ where: { email: username } });
+        if (user && user.checkPassword(password)) {
+            cb(null, user)
+        } else {
+            cb(null, false);
+        }
     }
 
-    async verify2(
+    async verifyBearerStrategy(
         token: string,
         cb: (err: Error | null, user?: User | false) => void,
     ) {
-        await this.userRepository.findOne({ where: {} })
-        // find user by name & password
-        // call cb(null, false) when user not found
-        // call cb(null, user) when user is authenticated
+        try {
+            const decoded = await jwt.verify(token, 'secret');
+            const obj = JSON.parse(JSON.stringify(decoded));
+            const user = await this.userRepository.findById(obj.id);
+            if (user && obj.password === user.password) {
+                cb(null, user)
+            } else {
+                cb(null, false);
+            }
+        } catch (error) {
+            console.log(error);
+            cb(null, false);
+        }
     }
 }

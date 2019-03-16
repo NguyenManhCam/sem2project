@@ -19,7 +19,8 @@ import {
 import { User } from '../models';
 import { UserRepository } from '../repositories';
 import * as bcrypt from 'bcrypt';
-import * as jwt from 'jsonwebtoken';
+import { authenticate } from '@loopback/authentication';
+import * as request from 'request';
 
 export class UserController {
   constructor(
@@ -37,9 +38,11 @@ export class UserController {
   })
 
   async create(@requestBody() user: User): Promise<User> {
+    user.password = await bcrypt.hash(user.password, 10);
     return await this.userRepository.create(user);
   }
 
+  @authenticate('Basic')
   @get('/users/count', {
     responses: {
       '200': {
@@ -96,14 +99,40 @@ export class UserController {
     },
   })
   async findById(@param.path.string('id') id: string): Promise<User> {
-    let user = await this.userRepository.findById(id);
-    if (user.checkPassword('123455')) {
-      const token = await jwt.sign({id: user.id, email: user.email}, 'secret');
-      console.log(token);
-      
-    }
-    
     return await this.userRepository.findById(id);
+  }
+
+  @post('/users/login', {
+    responses: {
+      '200': {
+        description: 'Login to get access token',
+        content: { 'application/json': { schema: { 'x-ts-type': User } } },
+      }
+    }
+  })
+  async login(@requestBody() user: User): Promise<object> {
+    const userDb = await this.userRepository.findOne({ where: { email: user.email } });
+    if (!userDb) {
+      return { error: 'User Not Found' }
+    }
+    if (!userDb.checkPassword(user.password)) {
+      return { error: 'Email or password is not correct' }
+    }
+    return { token: await userDb.generateToken() };
+  }
+
+  @post('/users/login-google', {
+    responses: {
+      '200': {
+        description: 'Login to get access token',
+        content: { 'application/json': { schema: { 'x-ts-type': String } } },
+      }
+    }
+  })
+  async loginGoogle(@requestBody() token: string) {
+    const req = await request.get(`https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${token}`);
+    const res = req.response;
+    return res;
   }
 
   @patch('/users/{id}', {
