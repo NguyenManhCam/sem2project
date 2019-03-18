@@ -1,0 +1,16 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mongodb": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "mongodb+srv://admin:Admin1234@cluster0-9larn.azure.mongodb.net/sem2project?retryWrites=true",
+    "database": "sem2project",
+    "password": "Admin1234",
+    "name": "mongodb",
+    "user": "admin",
+    "connector": "mongodb"
+  }
+}
