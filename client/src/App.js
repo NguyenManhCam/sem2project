@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        {this.state.username=="admin" && this.state.password=="123456" ? <HomeScreen /> :
+        {this.state.username === "admin" && this.state.password === "123456" ? <HomeScreen /> :
         <Login onLogin={this.onLogin}/> }
       </div>
     );

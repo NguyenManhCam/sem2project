@@ -18,6 +18,7 @@ export default class Login extends Component {
     return (
         <div id="login">
         <div className="container">
+        <form onSubmit={this._onLogin}>
           <div className="login-container f-main">
             <div className="form-banner">
               <div className="snow"></div>
@@ -43,16 +44,17 @@ export default class Login extends Component {
                   <label>Mật khẩu</label>
                   <input onChange={this.onChangePassword} type="password" name="password" placeholder="Mật khẩu" required />
                 </div>
-                <div className="submit-container"><button onClick={this._onLogin}>Đăng nhập</button></div>
+                <div className="submit-container"><button type="submit" onClick={this._onLogin}>Đăng nhập</button></div>
               </div>
               <div className="footer-form">
                 <p>
                   Bạn chưa có tài khoản?
-                  <a className="open-signup">Đăng ký</a>
+                  <a href="javascript:;" className="open-signup">Đăng ký</a>
                 </p>
               </div>
             </div>
           </div>
+          </form>
         </div>
       </div>
     );
