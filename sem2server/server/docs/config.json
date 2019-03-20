@@ -1,0 +1,6 @@
+{
+    "staticUrl": "api-def.json",
+    "url": "/document/api-def.json",
+    "extend": "/document/api-def-extended.json",
+    "staticExtend": "api-def-extended.json"
+}
