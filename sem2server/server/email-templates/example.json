@@ -1,0 +1,4 @@
+{
+	"subject": "email subject here",
+	"content": "Plain text or HTML content here ${parameter1} ${parameter2}"
+}

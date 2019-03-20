@@ -1,0 +1,7 @@
+Student: name, email, phone, gender, dateOfBirth, address, startDate, parentInfo[], data
+Teacher: name, email, phone, gender, dateOfBirth, address, startDate, data
+Subject: name, code, curriculum[lesson], description, document
+StudyTime: name, begin, end, weekdays[]
+CourseTimeTable: name, code, note, 
+
+
