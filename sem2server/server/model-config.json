@@ -38,5 +38,25 @@
   "Container": {
     "dataSource": "localFileStorage",
     "public": true
+  },
+  "Student": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "Teacher": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "Subject": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "StudyTime": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "CourseTimeTable": {
+    "dataSource": "mongodb",
+    "public": true
   }
 }
