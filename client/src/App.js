@@ -15,9 +15,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <HomeScreen />
+        {/* <HomeScreen /> */}
         {/* {this.state.username=="admin" && this.state.password=="123456" ? <HomeScreen /> :
         {/* <Logins /> */}
+        <Logins />
       </div>
     );
   }

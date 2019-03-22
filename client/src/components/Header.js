@@ -92,6 +92,7 @@ export default class Headers extends Component {
           </span>
           <Dropdown overlay={menu}><span
             style={{
+              cursor: "pointer",
               position: "absolute",
               right: this.state.right,
               padding: "0 24px"
