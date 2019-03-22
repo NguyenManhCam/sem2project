@@ -7,16 +7,16 @@ import test4 from "../images/test4.jpg";
 import test5 from "../images/test5.jpg";
 import test6 from "../images/test6.jpg";
 import test7 from "../images/test7.jpg";
+import ClassManager from "./ClassManager";
 
 const { Content } = Layout;
 
 export default class MainContent extends Component {
-
-
+  
   render() {
     return (
       <div>
-        <Content
+        {/* <Content
           style={{
             margin: "24px 16px",
             padding: 24,
@@ -63,6 +63,17 @@ export default class MainContent extends Component {
           <div className="post">
             <img src={test7} alt="imgpost" />
           </div>
+        </Content> */}
+
+        <Content
+          style={{
+            margin: "24px 16px",
+            padding: 24,
+            background: "#fff"
+            // overflow: "initial"
+          }}
+        >
+          <ClassManager />
         </Content>
       </div>
     );
