@@ -10,12 +10,6 @@
   color: #1890ff;
 }
 
-.avatar {
-  display: inline-block;
-  float: right;
-  padding: 0 24px;  
-}
-
 .logo {
   height: 32px;
   background: rgba(255,255,255,.2);
@@ -440,3 +434,15 @@ label {
     transform: rotate(360deg);
   }
 }
+
+
+.login-form {
+  max-width: 300px;
+}
+.login-form-forgot {
+  float: right;
+}
+.login-form-button {
+  width: 100%;
+}
+

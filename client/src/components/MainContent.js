@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Layout } from "antd";
+import { Layout, Progress } from "antd";
 import test1 from "../images/test1.png";
 import test2 from "../images/test2.jpg";
 import test3 from "../images/test3.jpg";
@@ -11,6 +11,8 @@ import test7 from "../images/test7.jpg";
 const { Content } = Layout;
 
 export default class MainContent extends Component {
+
+
   render() {
     return (
       <div>
@@ -23,7 +25,7 @@ export default class MainContent extends Component {
           }}
         >
           <div style={{ padding: 24, textAlign: "center" }}>
-            content
+            <Progress  type="dashboard" percent={50} status="active" />
           </div>
         </Content>
         <Content

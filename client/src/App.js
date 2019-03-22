@@ -3,8 +3,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "antd/dist/antd.css";
 import HomeScreen from "./containers/HomeScreen";
-import Login from "./components/Login";
-
+import Logins from "./components/Logins";
 
 class App extends Component {
   state = {}
@@ -16,8 +15,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        {this.state.username=="admin" && this.state.password=="123456" ? <HomeScreen /> :
-        <Login onLogin={this.onLogin}/> }
+        <HomeScreen />
+        {/* {this.state.username=="admin" && this.state.password=="123456" ? <HomeScreen /> :
+        {/* <Logins /> */}
       </div>
     );
   }
