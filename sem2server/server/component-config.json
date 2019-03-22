@@ -22,20 +22,10 @@
       "BackendDataViewer",
       "FrontendUserManager"
     ],
-    "instagram": {
-      "client_id": "6e3c474c936141b291d85424b526069f",
-      "client_secret": "6712d06418724c7cb3787f6dc917f519",
-      "redirect_uri": "http://54.86.75.224:3002/instagram"
-    },
-    "notificationTopics": {
-      "frontendUser": [
-        "All Registered Users"
-      ]
-    },
     "resizedImageWidth": 1080,
     "serverPath": "CURRENT WORKING DIRECTORY, WILL BE AUTOMATICALLY SET IN CODE. DO NOT SET A VALUE HERE",
     "clientConfiguration": {
-      "feedbackEmail": "thanhdevapp@gmail.com"
+      "feedbackEmail": "camnmd00754@fpt.edu.vn"
     },
     "error": {
       "statusCode": 400,
@@ -63,7 +53,7 @@
       "businessCreatedEveryday": "businessCreatedEveryday"
     },
     "defaultSenderNameOfPushNotification": "Automatically sent by system",
-    "contactUsRecipientEmail": "thanhdevapp@gmail.com",
+    "contactUsRecipientEmail": "camnmd00754@fpt.edu.vn",
     "maximumRegistrationForATreeHunt": 50,
     "treeHuntDuration": 30
   },

@@ -32,6 +32,10 @@
     "startDate": {
       "type": "date"
     },
+    "avatar": {
+      "type": "string",
+      "required": true
+    },
     "data": {
       "type": "any"
     }
