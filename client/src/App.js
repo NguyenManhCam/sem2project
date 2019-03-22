@@ -6,11 +6,11 @@ import HomeScreen from "./containers/HomeScreen";
 import Logins from "./components/Logins";
 
 class App extends Component {
-  state = {}
+  state = {};
 
   onLogin = (username, password) => {
     this.setState({ username: username, password: password });
-  }
+  };
 
   render() {
     return (

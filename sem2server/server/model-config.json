@@ -14,32 +14,48 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "mongodb"
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": false
+  },
+  "Container": {
+    "dataSource": "localFileStorage",
+    "public": true
   },
   "Student": {
     "dataSource": "mongodb",
     "public": true
   },
-  "ClassFPT": {
+  "Teacher": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "Subject": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "StudyTime": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "CourseTimeTable": {
     "dataSource": "mongodb",
     "public": true
   }

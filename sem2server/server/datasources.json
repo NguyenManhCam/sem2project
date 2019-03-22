@@ -12,5 +12,13 @@
     "name": "mongodb",
     "user": "admin",
     "connector": "mongodb"
+  },
+  "localFileStorage": {
+    "name": "localFileStorage",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "upload",
+    "nameConflict": "makeUnique",
+    "maxFileSize": "20000000"
   }
 }

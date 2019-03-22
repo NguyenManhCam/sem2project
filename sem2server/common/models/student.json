@@ -1,16 +1,23 @@
 {
   "name": "Student",
-  "plural": "students",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "id": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
       "type": "string"
     },
-    "name": {
+    "gender": {
       "type": "string",
       "required": true
     },
@@ -22,12 +29,11 @@
       "type": "string",
       "required": true
     },
-    "email": {
-      "type": "string",
-      "required": true
+    "startDate": {
+      "type": "date"
     },
-    "phone": {
-      "type": "string"
+    "data": {
+      "type": "any"
     }
   },
   "validations": [],

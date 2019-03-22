@@ -1,0 +1,30 @@
+{
+  "name": "StudyTime",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "begin": {
+      "type": "number",
+      "required": true
+    },
+    "end": {
+      "type": "number",
+      "required": true
+    },
+    "weekdays": {
+      "type": "any",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
