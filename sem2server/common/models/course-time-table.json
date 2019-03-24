@@ -5,6 +5,9 @@
   "options": {
     "validateUpsert": true
   },
+  "mixins": {
+    "Paginator": true
+  },
   "properties": {
     "name": {
       "type": "string",
