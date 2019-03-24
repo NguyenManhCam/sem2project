@@ -1,7 +1,18 @@
 Student: name, email, phone, gender, dateOfBirth, address, startDate, avatar, data
 Teacher: name, email, phone, gender, dateOfBirth, address, startDate, avatar, data
-Subject: name, code, curriculum[lesson], description, document
+Class: subjects, students, teachers, timetables;
+Subject: name, code, lessons, description, document, scores, attendance
 StudyTime: name, begin, end, weekdays[]
-CourseTimeTable: name, code, note, 
+CourseTimeTable: name, code, note;
+Attendance: lessonId, studentId, status;
+Scores: subjectId, studentId, asm, LT, TH;
 
 
+
+Create CourseTimeTable with excel;
+Create Subject from CourseTimeTable include list lesson;
+Điểm danh lấy danh sách sinh viên từ lớp học và lesson tương ứng với thời gian hiện tại;
+Điểm danh sẽ gồm các trường: lessonId, studentId, status; (Thống kê sinh viên đủ điều kiện thi hay không)
+Điểm: studentId, subjectId, asm, LT, TH;
+Môn học sẽ bao gồm điểm danh và kết quả học tập của sinh viên;
+Lớp học bao gồm danh sách môn học, danh sách sinh viên, danh sách giảng viên, danh sách CourseTimeTable

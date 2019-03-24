@@ -18,5 +18,10 @@
       "limit": "100kb"
     },
     "cors": false
+  },
+  "paginator": {
+    "limit": 12,
+    "maxLimit": 100,
+    "noMaxLimit": true
   }
 }

@@ -22,6 +22,7 @@
     "loopback-component-explorer": "^6.2.0",
     "loopback-component-storage": "^3.5.0",
     "loopback-connector-mongodb": "^4.0.0",
+    "loopback-paginator": "^2.0.0",
     "node-cron": "^2.0.3",
     "sendgrid": "^5.2.3",
     "serve-favicon": "^2.0.1",
