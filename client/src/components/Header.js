@@ -44,26 +44,32 @@ export default class Headers extends Component {
     });
   }
 
+  handleMenuClick = (e) => {
+    if (e.key === 'logout') {
+      this.props.onLogout()
+    }
+  }
+
   render() {
     const menu = (
-      <Menu>
+      <Menu onClick={this.handleMenuClick}>
         <Menu.Item key="userCenter">
-          <Icon type="user" style={{ fontSize: "20px" }} /><span style={{  }}>Thông tin</span>
+          <Icon type="user" /><span>Thông tin</span>
         </Menu.Item>
         <Menu.Item key="userinfo">
-          <Icon type="setting" style={{ fontSize: "20px" }} />Cài đặt
+          <Icon type="setting" />Cài đặt
         </Menu.Item>
         <Menu.Item key="triggerError">
-          <Icon type="close-circle" style={{ fontSize: "20px" }}/>Trigger Error
+          <Icon type="close-circle"/>Trigger Error
         </Menu.Item>
         <Menu.Divider />
         <Menu.Item key="logout">
-          <Icon type="logout" style={{ fontSize: "20px" }}/>Đăng xuất
+          <Icon type="logout"/>Đăng xuất
         </Menu.Item>
       </Menu>);
 
     return (
-      <div id="header" className="f-main">
+      <div style={{ zIndex: 1 }} id="header" className="f-main">
         <Header
           id="header"
           style={{ background: "#fff", padding: 0, position: "relative" }}

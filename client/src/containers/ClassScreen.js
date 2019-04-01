@@ -2,14 +2,13 @@ import React, { Component } from "react";
 import { Layout } from "antd";
 import Footers from "../components/Footer";
 import Headers from "../components/Header";
-import MainContent from "../components/MainContent";
 import SideBar from "../components/Sider";
-import Logins from "../components/Logins";
+import ClassContent from "../components/ClassContent";
 
-export default class HomeScreen extends Component {
+export default class ClassScreen extends Component {
   state = {
     collapsed: true,
-    marginLeft: "80px",
+    marginLeft: "80px"
   };
 
   toggle = () => {
@@ -24,17 +23,21 @@ export default class HomeScreen extends Component {
   render() {
     return (
       <div>
-        {this.props.username ? <div>
+        <div>
           <SideBar collapsed={this.state.collapsed} />
           <Layout
             id="content-img"
             style={{ marginLeft: `${this.state.marginLeft}` }}
           >
-            <Headers collapsed={this.state.collapsed} toggle={this.toggle} onLogout={this.props.onLogout} />
-            <MainContent />
-            <Footers />
+            <Headers
+              collapsed={this.state.collapsed}
+              toggle={this.toggle}
+              onLogout={this.props.onLogout}
+            />
+            <ClassContent />
+            {/* <Footers /> */}
           </Layout>
-        </div> : <Logins onLogin={this.props.onLogin} />}
+        </div>
       </div>
     );
   }

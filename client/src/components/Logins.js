@@ -4,22 +4,15 @@ import bg from "../images/test1.png";
 import axios from "../axios";
 
 class Logins extends Component {
-  state = {}
+  state = {};
   componentDidMount() {}
 
   handleSubmit = async e => {
     e.preventDefault();
     this.props.form.validateFields(async (err, values) => {
       if (!err) {
-        console.log("Received values of form: ", values);
-        let data = "";
-        try {
-          data = await axios.post("/api/Users/login", values);
-        } catch (error) {
-          console.log(error);
-          this.setState({ noti: "Ten tai khoan hoac password khong dung" })
-        }
-        console.log(data);
+        // console.log("Received values of form: ", values);
+        this.props.onLogin(values)
       }
     });
   };
@@ -33,7 +26,7 @@ class Logins extends Component {
           className="login-form"
         >
           <Form.Item>
-            {getFieldDecorator("email", {
+            {getFieldDecorator("username", {
               rules: [
                 { required: true, message: "Please input your username!" }
               ]
@@ -49,7 +42,7 @@ class Logins extends Component {
           <Form.Item>
             {getFieldDecorator("password", {
               rules: [
-                { required: true, message: "Please input your Password!" },
+                { required: true, message: "Please input your Password!" }
               ]
             })(
               <Input
@@ -61,7 +54,11 @@ class Logins extends Component {
               />
             )}
           </Form.Item>
-          {this.state.noti ? <p style={{ color: "red" }}>{this.state.noti}</p> : ""}
+          {this.state.noti ? (
+            <p style={{ color: "red" }}>{this.state.noti}</p>
+          ) : (
+            ""
+          )}
           <Form.Item>
             {getFieldDecorator("remember", {
               valuePropName: "checked",

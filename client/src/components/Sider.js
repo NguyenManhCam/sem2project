@@ -1,85 +1,105 @@
 import React, { Component } from "react";
 import { Layout, Menu, Icon } from "antd";
+import { Link } from "react-router-dom";
 
 const { Sider } = Layout;
 
 const SubMenu = Menu.SubMenu;
 
 class SideBar extends Component {
+  state = {};
+
   render() {
     return (
       <Sider
-          style={{
-            overflow: "auto",
-            height: "100vh",
-            position: "fixed",
-            left: 0
-          }}
-          trigger={null}
-          collapsible
-          collapsed={this.props.collapsed}
+        style={{
+          overflow: "auto",
+          height: "100vh",
+          position: "fixed",
+          left: 0
+        }}
+        trigger={null}
+        collapsible
+        collapsed={this.props.collapsed}
+      >
+        <div className="logo" />
+        <Menu
+          style={{ position: "relative" }}
+          theme="dark"
+          mode="inline"
+          defaultSelectedKeys={[
+            `${
+              window.location.pathname.length > 1
+                ? window.location.pathname.split(
+                    "/"
+                  )[1]
+                : window.location.pathname
+            }`
+          ]}
         >
-          <div className="logo" />
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
-            <Menu.Item key="1">
-              <Icon type="pie-chart" />
-              <span>Option 1</span>
+          <Menu.Item key="/">
+            <Link to={`/`}>
+              <a>
+                <Icon type="home" />
+                <span>Trang chủ</span>
+              </a>
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="dashboard">
+            <Link to={`/dashboard`}>
+              <a>
+                <Icon type="dashboard" />
+                <span>Thống kê</span>
+              </a>
+            </Link>
+          </Menu.Item>
+
+          <SubMenu
+            key="manager"
+            title={
+              <span>
+                <Icon type="table" />
+                <span>Quản lý</span>
+              </span>
+            }
+          >
+            <Menu.Item key="students">
+              <Link to={`/manager/students`}>
+                <a>Học sinh</a>
+              </Link>
             </Menu.Item>
-            <Menu.Item key="2">
-              <Icon type="video-camera" />
-              <span>Video Camera</span>
-            </Menu.Item>
-            <Menu.Item key="3">
-              <Icon type="upload" />
-              <span>Upload</span>
-            </Menu.Item>
-            <SubMenu
-              key="sub1"
-              title={
-                <span>
-                  <Icon type="user" />
-                  <span>User</span>
-                </span>
-              }
-            >
-              <Menu.Item key="4">Tom</Menu.Item>
-              <Menu.Item key="5">Bill</Menu.Item>
-              <Menu.Item key="6">Alex</Menu.Item>
-            </SubMenu>
-            <SubMenu
-              key="sub2"
-              title={
-                <span>
-                  <Icon type="team" />
-                  <span>Team</span>
-                </span>
-              }
-            >
-              <Menu.Item key="7">Team 1</Menu.Item>
-              <Menu.Item key="8">Team 2</Menu.Item>
-            </SubMenu>
-            <Menu.Item key="9">
-              <Icon type="file" />
-              <span>File</span>
-            </Menu.Item>
-            <Menu.Item key="10">
-              <Icon type="shop" />
-              <span>Shop</span>
-            </Menu.Item>
-            <Menu.Item key="11">
-              <Icon type="appstore-o" />
-              <span>App Store</span>
-            </Menu.Item>
-            <Menu.Item key="12">
-              <Icon type="cloud-o" />
-              <span>Cloud</span>
-            </Menu.Item>
-            <Menu.Item key="13">
-              <Icon type="bar-chart" />
-              <span>Bar Chat</span>
-            </Menu.Item>
-          </Menu>
-        </Sider>
+            <Menu.Item key="teachers">Giáo viên</Menu.Item>
+          </SubMenu>
+          <Menu.Item key="class">
+            <Link to="/class">
+              <a>
+                <Icon type="book" />
+                <span>Lớp học</span>
+              </a>
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="sem">
+            <Link to={`/sem`}>
+              <a>
+                <Icon type="cluster" />
+                <span>Học kỳ</span>
+              </a>
+            </Link>
+          </Menu.Item>
+          <SubMenu
+            key="sub2"
+            title={
+              <span>
+                <Icon type="user" />
+                <span>Tài khoản</span>
+              </span>
+            }
+          >
+            <Menu.Item key="7">Thông tin tài khoản</Menu.Item>
+            <Menu.Item key="8">Thay đổi thông tin</Menu.Item>
+          </SubMenu>
+        </Menu>
+      </Sider>
     );
   }
 }

@@ -1,3 +1,3 @@
 export default {
-    rootPath : "http://localhost:3000"
+    rootPath : "http://localhost:6969"
 }
