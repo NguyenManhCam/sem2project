@@ -1,4 +1,0 @@
-{
-    "subject": "A Global Icon user contacted you",
-    "content": "An user at email address ${parameter0} sent this to you:<br/>${parameter1}<br/><br/>User's name is: ${parameter2}<br/>Phone number is: ${parameter3}"
-}
